@@ -16,6 +16,8 @@ class ODManager {
     /// Base URL for which the API has to hit
     var baseURL: String = ""
     
+    let defaults = UserDefaults.standard
+    
     /// Private initializer so that no one can create another instance of ODManager
     private init() {
         initWithHost()
@@ -34,5 +36,13 @@ class ODManager {
                 baseURL = val
             }
         }
+    }
+    
+    func saveInUserDefault(_ isfavorite: Bool, key forUser: String) {
+        defaults.set(isfavorite, forKey: forUser)
+    }
+    
+    func fetchFromUserDefaults(key forUser: String) -> Bool {
+        return defaults.bool(forKey: forUser)
     }
 }

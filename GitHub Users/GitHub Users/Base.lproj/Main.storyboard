@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l44-Su-Jzs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A88-Bl-k9G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Git Hub Users List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="ohv-ix-3Ab">
+            <objects>
+                <navigationController storyboardIdentifier="GitUserNavigationController" id="A88-Bl-k9G" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z8N-n4-mi5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="l44-Su-Jzs" kind="relationship" relationship="rootViewController" id="1zy-Mo-rkP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFL-D7-1YV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1026" y="94"/>
+        </scene>
+        <!--GitHub Users-->
         <scene sceneID="jvw-ob-kZG">
             <objects>
                 <viewController storyboardIdentifier="GitHubUsersListViewController" id="l44-Su-Jzs" customClass="GitHubUsersListViewController" customModule="GitHub_Users" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,8 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-i5-SCa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-i5-SCa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="l44-Su-Jzs" id="5ig-mE-wLx"/>
@@ -34,6 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3c8-ph-5Ca"/>
                     </view>
+                    <navigationItem key="navigationItem" title="GitHub Users" id="9B4-th-G8f"/>
                     <connections>
                         <outlet property="gitHubUsersTableView" destination="VLX-i5-SCa" id="As2-ty-L4y"/>
                     </connections>
@@ -41,6 +58,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tw3-ic-Efq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="226" y="95"/>
+        </scene>
+        <!--Git Hub User Page View Controller-->
+        <scene sceneID="KFa-kl-MSH">
+            <objects>
+                <viewController storyboardIdentifier="GitHubUserPageViewController" id="chC-tp-Cus" customClass="GitHubUserPageViewController" customModule="GitHub_Users" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zDP-f4-0dA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfs-BF-UnD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Pcg-ka-Sth" firstAttribute="bottom" secondItem="Yfs-BF-UnD" secondAttribute="bottom" id="E5S-zb-nKr"/>
+                            <constraint firstItem="Yfs-BF-UnD" firstAttribute="top" secondItem="Pcg-ka-Sth" secondAttribute="top" id="W9b-Ya-SmF"/>
+                            <constraint firstItem="Yfs-BF-UnD" firstAttribute="leading" secondItem="Pcg-ka-Sth" secondAttribute="leading" id="une-1c-rdf"/>
+                            <constraint firstItem="Pcg-ka-Sth" firstAttribute="trailing" secondItem="Yfs-BF-UnD" secondAttribute="trailing" id="wtX-yP-gZR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pcg-ka-Sth"/>
+                    </view>
+                    <connections>
+                        <outlet property="webload" destination="Yfs-BF-UnD" id="Tnm-V0-RTr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VDi-QT-5xp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="94.419642857142847"/>
         </scene>
     </scenes>
 </document>

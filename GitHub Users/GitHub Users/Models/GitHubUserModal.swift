@@ -31,6 +31,9 @@ struct GitHubUser: Codable {
     
     /// Represents the site_admin status
     var adminStatus: Bool?
+     
+    /// This is the custom property which hold the favorite status of the each user. (Device specific)
+    var isFavorite: Bool = false
     
     /// Enum case names in which the raw value of these cases has to be match with keys for decoding
     private enum CodingKeys: String, CodingKey {
@@ -42,5 +45,19 @@ struct GitHubUser: Codable {
         case accountType = "type"
         case adminStatus = "site_admin"
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        loginUserName = try values.decode(String.self, forKey: .loginUserName)
+        id = try values.decode(Int.self, forKey: .id)
+        profileImage = try values.decode(String.self, forKey: .profileImage)
+        url = try values.decode(String.self, forKey: .url)
+        gitHubHtmlUrl = try values.decode(String.self, forKey: .gitHubHtmlUrl)
+        accountType = try values.decode(String.self, forKey: .accountType)
+        adminStatus = try values.decode(Bool.self, forKey: .adminStatus)
+        
+        isFavorite = ODManager.sharedInstance.fetchFromUserDefaults(key: loginUserName ?? "")
+    }
+    
 }
 

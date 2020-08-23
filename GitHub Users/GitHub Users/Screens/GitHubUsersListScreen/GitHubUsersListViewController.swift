@@ -36,6 +36,8 @@ class GitHubUsersListViewController: UIViewController {
     /// ViewModal property
     var gitHubUserViewModal: GitHubUsersListViewModal!
     
+    var gitHubUserPageViewController: GitHubUserPageViewController!
+    
     // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,7 @@ class GitHubUsersListViewController: UIViewController {
         gitHubUserViewModal.getGitHubUsersList()
         
         
-        /// Adds activity indicator while fetching pick up list
+        /// Adds activity indicator while fetching Git User list
         activityIndicator = self.showActivityIndicatory(uiView: self.view)
     }
 
@@ -72,6 +74,7 @@ extension GitHubUsersListViewController {
         
         // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         gitHubUsersTableView?.refreshControl = refreshControl
+        
     }
     
     @objc func refreshTableView(refreshControl: UIRefreshControl) {
@@ -85,6 +88,7 @@ extension GitHubUsersListViewController {
         refreshControl.endRefreshing()
     }
 }
+
 // MARK: Table View DataSource
 extension GitHubUsersListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,6 +105,18 @@ extension GitHubUsersListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: Table View Delegate
+extension GitHubUsersListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        gitHubUserPageViewController = storyBoard.instantiateViewController(withIdentifier: GitHubUserPageViewController.identifier) as? GitHubUserPageViewController
+        gitHubUserPageViewController?.htmlURL = gitHubUsersList[indexPath.row].gitHubHtmlUrl
+        
+        self.navigationController?.pushViewController(gitHubUserPageViewController, animated: true)
+    }
+}
+
+// MARK: View modal Delegates
 extension GitHubUsersListViewController: GitHubUsersListViewModalDelegate {
     func gitHubUserList(_ list: [GitHubUser]?) {
         if let usersList = list {
@@ -118,6 +134,4 @@ extension GitHubUsersListViewController: GitHubUsersListViewModalDelegate {
         activityIndicator?.stopAnimating()
         self.alertView(title, description: message)
     }
-    
-    
 }
