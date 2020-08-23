@@ -30,6 +30,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA4-1t-LoQ">
                         <rect key="frame" x="20" y="245" width="463" height="29"/>
+                        <accessibility key="accessibilityConfiguration" identifier="LoginName Identifier"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,13 +48,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Status :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEt-tU-icd">
-                        <rect key="frame" x="30" y="399.5" width="116.5" height="20.5"/>
+                        <rect key="frame" x="30" y="388.5" width="116.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/mojombo" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25O-nJ-h0B">
                         <rect key="frame" x="170" y="307.5" width="313" height="20.5"/>
+                        <accessibility key="accessibilityConfiguration" identifier="GitHub URL Identifier"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -65,7 +67,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="False" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuv-5U-XW9">
-                        <rect key="frame" x="166.5" y="399.5" width="39.5" height="20.5"/>
+                        <rect key="frame" x="166.5" y="388.5" width="39.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -104,7 +106,7 @@
                     <constraint firstItem="aS7-sS-R56" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xff-Nf-ahq"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="tuv-5U-XW9" secondAttribute="trailing" constant="20" id="Zjm-un-L17"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cvB-UQ-wE4" secondAttribute="trailing" constant="20" id="cwx-Ne-vgI"/>
-                    <constraint firstItem="tuv-5U-XW9" firstAttribute="top" secondItem="y28-gJ-337" secondAttribute="bottom" constant="31" id="ftP-sB-McX"/>
+                    <constraint firstItem="tuv-5U-XW9" firstAttribute="top" secondItem="y28-gJ-337" secondAttribute="bottom" constant="20" id="ftP-sB-McX"/>
                     <constraint firstItem="wA4-1t-LoQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="j6B-69-k98"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="y28-gJ-337" secondAttribute="trailing" constant="20" id="mp5-Yc-ABK"/>
                     <constraint firstItem="wA4-1t-LoQ" firstAttribute="centerX" secondItem="aS7-sS-R56" secondAttribute="centerX" id="pjb-KL-OTg"/>

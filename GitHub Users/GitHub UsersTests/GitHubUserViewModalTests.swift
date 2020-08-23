@@ -11,24 +11,49 @@ import XCTest
 
 class GitHubUserViewModalTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var gitHubUsersListViewModal: GitHubUsersListViewModal?
+    var list: [GitHubUser]?
+    var gitHubUsersListExpectation: XCTestExpectation?
+    
+    override func setUp()  {
+        super.setUp()
+        gitHubUsersListViewModal = GitHubUsersListViewModal(delegate: self)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown()  {
+        super.tearDown()
+        gitHubUsersListViewModal = nil
+        gitHubUsersListExpectation = nil
+        list = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGitHubUsersList() {
+        gitHubUsersListExpectation = expectation(description: "GitHubUsers Expectation")
+        gitHubUsersListViewModal?.getGitHubUsersList()
+        waitForExpectations(timeout: 10)
     }
+}
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+
+extension GitHubUserViewModalTests: GitHubUsersListViewModalDelegate {
+    func gitHubUserList(_ list: [GitHubUser]?) {
+        XCTAssertNotNil(list)
+        XCTAssertFalse(list!.isEmpty)
+
+        gitHubUsersListViewModal?.getImage(from: (list?.first?.profileImage)!, { (data) in
+            XCTAssertNotNil(data)
+            self.gitHubUsersListExpectation?.fulfill()
+        })
+    }
+    
+    func gitHubUserError(_ title: String, description message: String) {
+        XCTFail()
+        gitHubUsersListExpectation?.fulfill()
+    }
+    
+    func networkConnectionError() {
+        XCTFail()
+        gitHubUsersListExpectation?.fulfill()
     }
 
 }

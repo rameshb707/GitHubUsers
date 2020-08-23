@@ -10,6 +10,8 @@
 		4C2C6DDB24F2392C0070AA2F /* GitHubUserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C6DDA24F2392C0070AA2F /* GitHubUserPageViewController.swift */; };
 		4C2C6DDE24F23DF80070AA2F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2C6DDD24F23DF80070AA2F /* WebKit.framework */; };
 		4C2C6DE024F27C540070AA2F /* GitHubUserViewModalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C6DDF24F27C530070AA2F /* GitHubUserViewModalTests.swift */; };
+		4C2C6DE224F281310070AA2F /* GitHubUsersLisrVireControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C6DE124F281310070AA2F /* GitHubUsersLisrVireControllerTests.swift */; };
+		4C2C6DE424F28ED10070AA2F /* XCTestCase+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C6DE324F28ED10070AA2F /* XCTestCase+extension.swift */; };
 		4CB2DFF524F13E8A00E9B2E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2DFF424F13E8A00E9B2E1 /* AppDelegate.swift */; };
 		4CB2DFF724F13E8A00E9B2E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2DFF624F13E8A00E9B2E1 /* SceneDelegate.swift */; };
 		4CB2DFFC24F13E8A00E9B2E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB2DFFA24F13E8A00E9B2E1 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		4C2C6DDA24F2392C0070AA2F /* GitHubUserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserPageViewController.swift; sourceTree = "<group>"; };
 		4C2C6DDD24F23DF80070AA2F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4C2C6DDF24F27C530070AA2F /* GitHubUserViewModalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserViewModalTests.swift; sourceTree = "<group>"; };
+		4C2C6DE124F281310070AA2F /* GitHubUsersLisrVireControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUsersLisrVireControllerTests.swift; sourceTree = "<group>"; };
+		4C2C6DE324F28ED10070AA2F /* XCTestCase+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+extension.swift"; sourceTree = "<group>"; };
 		4CB2DFF124F13E8A00E9B2E1 /* GitHub Users.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Users.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB2DFF424F13E8A00E9B2E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CB2DFF624F13E8A00E9B2E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				4CB2E00B24F13E9700E9B2E1 /* GitHub_UsersTests.swift */,
 				4CB2E00D24F13E9700E9B2E1 /* Info.plist */,
 				4C2C6DDF24F27C530070AA2F /* GitHubUserViewModalTests.swift */,
+				4C2C6DE124F281310070AA2F /* GitHubUsersLisrVireControllerTests.swift */,
 			);
 			path = "GitHub UsersTests";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		4CB2E01524F13E9800E9B2E1 /* GitHub UsersUITests */ = {
 			isa = PBXGroup;
 			children = (
+				4C2C6DE324F28ED10070AA2F /* XCTestCase+extension.swift */,
 				4CB2E01624F13E9800E9B2E1 /* GitHub_UsersUITests.swift */,
 				4CB2E01824F13E9800E9B2E1 /* Info.plist */,
 			);
@@ -402,6 +408,7 @@
 			files = (
 				4C2C6DE024F27C540070AA2F /* GitHubUserViewModalTests.swift in Sources */,
 				4CB2E00C24F13E9700E9B2E1 /* GitHub_UsersTests.swift in Sources */,
+				4C2C6DE224F281310070AA2F /* GitHubUsersLisrVireControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2C6DE424F28ED10070AA2F /* XCTestCase+extension.swift in Sources */,
 				4CB2E01724F13E9800E9B2E1 /* GitHub_UsersUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
