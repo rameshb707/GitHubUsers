@@ -9,13 +9,12 @@
 import UIKit
 import WebKit
 
-class GitHubUserPageViewController: UIViewController, WKNavigationDelegate {
+class GitHubUserPageViewController: UIViewController {
 
     /// Storyboard identifier to fetch the viewcontroller
     static let identifier = String(describing: GitHubUserPageViewController.self)
     
     // MARK:- Outlets
-    
     @IBOutlet weak var webload: WKWebView!
     
     // MARK: Properties
@@ -38,12 +37,15 @@ class GitHubUserPageViewController: UIViewController, WKNavigationDelegate {
         
     }
 
+}
+
+extension GitHubUserPageViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator?.stopAnimating()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        self.alertView(WEB_VIEW_LOADING_ERROR_TITLE, description: WEB_VIEW_LOADING_ERROR_DESCRIPTION)
         activityIndicator?.stopAnimating()
     }
-    
 }

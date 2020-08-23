@@ -15,15 +15,12 @@ class GitHubUsersListViewController: UIViewController {
     
     // MARK:- Outlets
     @IBOutlet weak var gitHubUsersTableView: UITableView!
+    @IBOutlet weak var noListAvailableLabel: UILabel!
     
     // MARK:- Properties
     var gitHubUsersList: [GitHubUser] = [] {
         didSet {
-            if !gitHubUsersList.isEmpty {
-                gitHubUsersTableView?.reloadData()
-            } else {
-             
-            }
+            gitHubUsersTableView?.reloadData()
         }
     }
     
@@ -78,6 +75,8 @@ extension GitHubUsersListViewController {
     }
     
     @objc func refreshTableView(refreshControl: UIRefreshControl) {
+        gitHubUsersList.removeAll()
+        
         /// Getting the charity list to load in tableview
         gitHubUserViewModal.getGitHubUsersList()
         
@@ -103,6 +102,14 @@ extension GitHubUsersListViewController: UITableViewDataSource {
         cell?.congifureCell(userModel: gitHubUsersList[indexPath.row])
         return cell ?? UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // In order to acheive paginagtion
+        if indexPath.row == (gitHubUsersList.count - 1) {
+            activityIndicator?.startAnimating()
+            gitHubUserViewModal.fetchNextPage()
+        }
+    }
 }
 
 // MARK: Table View Delegate
@@ -120,8 +127,16 @@ extension GitHubUsersListViewController: UITableViewDelegate {
 extension GitHubUsersListViewController: GitHubUsersListViewModalDelegate {
     func gitHubUserList(_ list: [GitHubUser]?) {
         if let usersList = list {
-            self.gitHubUsersList = usersList
+            self.gitHubUsersList.append(contentsOf: usersList)
             activityIndicator?.stopAnimating()
+        }
+        
+        if gitHubUsersList.isEmpty {
+            noListAvailableLabel.isHidden = false
+            gitHubUsersTableView?.isHidden = true
+        } else {
+            gitHubUsersTableView?.isHidden = false
+            noListAvailableLabel.isHidden = true
         }
     }
     

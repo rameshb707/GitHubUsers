@@ -45,13 +45,18 @@ class GitHubUsersListViewModal {
         self.delegate = delegate
     }
     
+    /// Property hold the current page of the pagination
+    var currentPage : Int = 1
+    
     /**
      Fetches the Git hub user list form the endpoint by calling api from Network Manager.
      On Success it delgaates back to view to populate
     */
-    func getGitHubUsersList() {
+    func getGitHubUsersList(pageNumber: Int = 1) {
+        currentPage = pageNumber
         if let reachable = NetworkReachability.sharedInstance?.isReachable, reachable {
-            let request = Request(endPoint: GIT_HUB_USERS_END_POINT, parameters: nil, httpMethod: .GET)
+            let buildQuerryParameter = APIParams.url([ITEMS_PER_PAGE_KEY : ITEMS_PER_PAGE_VALUE, PAGE_NUMBER_KEY: pageNumber])
+            let request = Request(endPoint: GIT_HUB_USERS_END_POINT, parameters: buildQuerryParameter, httpMethod: .GET)
             networkManager.send(modelType: [GitHubUser].self, request) {[weak self] (usersList, error) in
                 DispatchQueue.main.async {
                     if let gitHubError = error {
@@ -90,4 +95,10 @@ class GitHubUsersListViewModal {
              }
          }
      }
+    
+    /// Increments the page to fetch the data of next page
+    func fetchNextPage() {
+        currentPage += 1
+        getGitHubUsersList(pageNumber: currentPage)
+    }
 }

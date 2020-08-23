@@ -30,7 +30,6 @@ struct Validation {
     
     static let notFoundStatusCode: Int = 404
     
-    
     static let serviceTempNotAvailableStatusCode: Int = 503
 
     
@@ -56,7 +55,6 @@ struct Validation {
     static func isAcceptedContentTypeForData(response: HTTPURLResponse?) -> Bool {
         if let responseContentType = response?.allHeaderFields["Content-Type"] as? String {
             if responseContentType.range(of: "application/json") != nil {
-//                application/vnd.github.v3+json
                 return true
             }
         }
@@ -78,16 +76,16 @@ struct Validation {
         
         switch responseStaus.statusCode {
         case unauthorizedStatusCode, badRequestStatusCode:
-            let error = GitHubUserError.clientError("User is not Authorized", "")
+            let error = GitHubUserError.clientError(NOT_AUTHORIZED_TITILE, "")
             return .error(error)
         case notFoundStatusCode:
-            let error = GitHubUserError.clientError("Domain Not Found", "")
+            let error = GitHubUserError.clientError(DOMAIN_NOT_FOUND_TITLE, "")
             return .error(error)
         case serviceTempNotAvailableStatusCode:
-            let error = GitHubUserError.clientError("Temporarily Unavailable", "Please try again later")
+            let error = GitHubUserError.clientError(SERVICE_ERROR_TITLE, SERVICE_ERROR_DESCRIPTION)
             return .error(error)
         default:
-            let error = GitHubUserError.clientError("Something Went Wrong", "Please try again later")
+            let error = GitHubUserError.clientError(UNKOWN_ERROR_TITLE, SERVICE_ERROR_DESCRIPTION)
             return .error(error)
         }
         
