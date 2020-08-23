@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                   
               } else {
                   self.window = UIWindow()
-             let pickUpListVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
-                  self.window?.rootViewController = pickUpListVC
+            let gitHubUsersListVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: GitHubUsersListViewController.identifier) as? GitHubUsersListViewController
+                  self.window?.rootViewController = gitHubUsersListVC
                   self.window?.makeKeyAndVisible()
               }
         return true

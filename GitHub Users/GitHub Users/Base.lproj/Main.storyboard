@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l44-Su-Jzs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,20 +8,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Git Hub Users List View Controller-->
+        <scene sceneID="jvw-ob-kZG">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="GitHub_Users" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="GitHubUsersListViewController" id="l44-Su-Jzs" customClass="GitHubUsersListViewController" customModule="GitHub_Users" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GgI-fo-bDF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-i5-SCa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="l44-Su-Jzs" id="5ig-mE-wLx"/>
+                                    <outlet property="delegate" destination="l44-Su-Jzs" id="60p-3P-TYv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="3c8-ph-5Ca" firstAttribute="bottom" secondItem="VLX-i5-SCa" secondAttribute="bottom" id="1he-de-kjT"/>
+                            <constraint firstItem="VLX-i5-SCa" firstAttribute="top" secondItem="3c8-ph-5Ca" secondAttribute="top" id="7aD-x6-ZZy"/>
+                            <constraint firstItem="VLX-i5-SCa" firstAttribute="leading" secondItem="3c8-ph-5Ca" secondAttribute="leading" id="Nyk-3f-p9n"/>
+                            <constraint firstItem="3c8-ph-5Ca" firstAttribute="trailing" secondItem="VLX-i5-SCa" secondAttribute="trailing" id="iIS-cs-KiN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3c8-ph-5Ca"/>
                     </view>
+                    <connections>
+                        <outlet property="gitHubUsersTableView" destination="VLX-i5-SCa" id="As2-ty-L4y"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tw3-ic-Efq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="66"/>
+            <point key="canvasLocation" x="226" y="95"/>
         </scene>
     </scenes>
 </document>

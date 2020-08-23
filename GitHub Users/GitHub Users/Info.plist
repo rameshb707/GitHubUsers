@@ -60,5 +60,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Base URL API</key>
+	<dict>
+		<key>host</key>
+		<string>https://api.github.com</string>
+	</dict>
 </dict>
 </plist>
