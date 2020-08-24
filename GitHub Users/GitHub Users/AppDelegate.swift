@@ -16,13 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13, *) {
-                  
-              } else {
-                  self.window = UIWindow()
-            let gitHubUsersListVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: GitHubUsersListViewController.identifier) as? GitHubUsersListViewController
-                  self.window?.rootViewController = gitHubUsersListVC
-                  self.window?.makeKeyAndVisible()
-              }
+            
+        } else {
+            self.window = UIWindow()
+            let gitHubUsersNavigationController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "GitUserNavigationController") as? UINavigationController
+            self.window?.rootViewController = gitHubUsersNavigationController
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 

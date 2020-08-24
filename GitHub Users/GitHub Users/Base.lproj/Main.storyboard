@@ -56,7 +56,6 @@
                             <constraint firstItem="3c8-ph-5Ca" firstAttribute="trailing" secondItem="VLX-i5-SCa" secondAttribute="trailing" id="iIS-cs-KiN"/>
                             <constraint firstItem="WZv-H8-INk" firstAttribute="centerY" secondItem="3c8-ph-5Ca" secondAttribute="centerY" id="pDa-w6-pkJ"/>
                             <constraint firstItem="3c8-ph-5Ca" firstAttribute="trailing" secondItem="WZv-H8-INk" secondAttribute="trailing" constant="20" id="rpM-XA-Nn1"/>
-                            <constraint firstItem="WZv-H8-INk" firstAttribute="centerX" secondItem="3c8-ph-5Ca" secondAttribute="centerX" id="wr6-EE-WUS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3c8-ph-5Ca"/>
                     </view>
